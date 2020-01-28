@@ -1,0 +1,42 @@
+{
+  "name": "@any-sender/paddy-tests",
+  "version": "0.1.0",
+  "description": "Paddy testing it",
+  "author": "stonecoldpat <stonecoldpat@gmail.com>",
+  "homepage": "https://github.com/PISAresearch/any.sender/tree/master/packages/paddy-tests#readme",
+  "license": "ISC",
+  "types": "lib/index",
+  "main": "lib/index",
+  "directories": {
+    "lib": "build",
+    "test": "__tests__"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PISAresearch/any.sender.git"
+  },
+  "scripts": {
+    "execute": "waffle waffle.json && npm run build-types && ts-node performance.ts",
+    "build-types": "typechain --target ethers --outDir ./src/contracts ./compiledSol/**/*.json && cp ./compiledSol/* ./src/contracts && tsc -p tsconfig.json && cp ./src/contracts/*.d.ts ./lib/contracts"
+  },
+  "bugs": {
+    "url": "https://github.com/PISAresearch/any.sender/issues"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.4.0",
+    "cross-fetch": "^3.0.4",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "@any-sender/client": "^0.1.4",
+    "@types/node": "^13.5.0",
+    "@types/request-promise-native": "^1.0.17",
+    "ethereum-waffle": "^2.3.1",
+    "ethers": "^4.0.43",
+    "typechain": "^1.0.4",
+    "typechain-target-ethers": "^1.0.3"
+  }
+}
